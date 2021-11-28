@@ -1,6 +1,26 @@
+<br />
 <h1>Lista de locações</h1>
-<ol>
-  <li *ngFor="let locacao of locacoes">
-    Id do filme: {{ locacao.filmeId }} | Id do usuário: {{ locacao.usuarioId }}
-  </li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Filme</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let locacao of locacoes">
+      <td>
+        {{ locacao.id }}
+      </td>
+      <td>
+        {{ locacao.filme }}
+      </td>
+      <td>
+        {{ locacao.usuario }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />

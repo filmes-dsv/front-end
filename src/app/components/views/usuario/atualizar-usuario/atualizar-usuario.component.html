@@ -1,12 +1,26 @@
+<br />
 <h1>Atualizar usuário</h1>
-<div id="nome">
-  <label for="nome">Nome:</label>
-  <input type="text" name="nome" [(ngModel)]="nome" />
-</div>
-<div id="id">
-  <label for="nome">ID:</label>
-  <input type="text" name="id" [(ngModel)]="id" />
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>Selecione o usuário a ser atualizado</mat-label>
+  <mat-select (selectionChange)="atualizar($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let user of array" [value]="user">
+      {{ user.nome }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+<br />
+<mat-form-field>
+  <mat-label>Novo nome do cliente:</mat-label>
+  <input type="text" name="nome" [(ngModel)]="nome" matInput />
+</mat-form-field>
+<br />
+<br />
 <div id="botaoAtualizar">
-  <button (click)="update()">Atualizar</button>
+  <button mat-stroked-button color="primary" (click)="update()">
+    Atualizar
+  </button>
 </div>
+<br />
+<br />

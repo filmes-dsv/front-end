@@ -1,8 +1,22 @@
+<br />
 <h1>Deletar usuário</h1>
-<div id="id">
-  <label for="id">ID do usuário:</label>
-  <input type="text" name="id" [(ngModel)]="id" />
+<mat-form-field appearance="fill">
+  <mat-label>Selecione o filme a ser atualizado</mat-label>
+  <mat-select (selectionChange)="atualizar($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let user of array" [value]="user">
+      {{ user.nome }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+<br />
+<div>
+  <div id="botaoDeletar">
+    <button mat-stroked-button color="primary" (click)="delete()">
+      Deletar
+    </button>
+  </div>
 </div>
-<div id="botaoDeletar">
-  <button (click)="delete()">Deletar</button>
-</div>
+<br />
+<br />

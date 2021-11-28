@@ -11,10 +11,19 @@ import { UsuarioService } from "src/app/services/usuario.service";
 export class AtualizarUsuarioComponent implements OnInit {
   nome!: string;
   id!: number;
+  array: Usuario[] = [];
 
   constructor(private service: UsuarioService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.list().subscribe((user) => {
+      this.array = user;
+    });
+  }
+
+  atualizar(val: any): void {
+    this.id = val.value.id;
+  }
 
   update(): void {
     let usuario: Usuario = {

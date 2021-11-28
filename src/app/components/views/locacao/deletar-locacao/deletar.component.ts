@@ -14,9 +14,23 @@ export class DeletarLocacaoComponent implements OnInit {
   locacoes: Locacao[] = [];
   constructor(private service: LocacaoService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.list().subscribe((locs) => {
+      this.locacoes = locs;
 
-  delete(): void {
+      locs.map((loc, index) => (this.locacoes[index].filme = loc.filme.titulo));
+
+      locs.map(
+        (loc, index) => (this.locacoes[index].usuario = loc.usuario.nome)
+      );
+    });
+  }
+
+  atualizar(val: any): void {
+    this.id = val.value.id;
+  }
+
+  deletar(): void {
     this.service.deletarLocacao(this.id).subscribe((locacoes) => {
       this.router.navigate(["filme/listar"]);
     });

@@ -5,17 +5,31 @@ li,
 label {
   font-family: Arial, Helvetica, sans-serif;
   padding: 8px;
-  color: #666666;
 }
 
 a {
   font-size: 14px;
 }
 
-button {
-  background-color: #666666;
-  color: white;
-  border: none;
-  padding: 8px;
-  margin: 16px 8px;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field {
+  background: #7b1fa2;
+  margin: 8px;
+  width: 50%;
+}
+
+a,
+h1,
+ol,
+table,
+li {
+  color: #7b1fa2;
 }
