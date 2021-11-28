@@ -16,10 +16,19 @@ export class AtualizarFilmeComponent implements OnInit {
   ano!: number;
   id!: number;
   genero!: string;
+  arrayFilmes: Filme[] = [];
 
   constructor(private service: FilmeService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.list().subscribe((filmes) => {
+      this.arrayFilmes = filmes;
+    });
+  }
+
+  atualizaFilme(val: any): void {
+    this.id = val.value.id;
+  }
 
   update(): void {
     let filme: Filme = {

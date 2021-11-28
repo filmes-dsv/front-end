@@ -1,12 +1,34 @@
-<h1>Cadastrar locação</h1>
-<div>
-  <label for="filmeId">ID do filme:</label>
-  <input type="text" name="filmeId" [(ngModel)]="filmeId" />
-</div>
-<div id="usuarioId">
-  <label for="usuarioId">ID do usuário:</label>
-  <input type="text" name="usuarioId" [(ngModel)]="usuarioId" />
-</div>
+<br />
+
+<h1>Cadastro de Locação</h1>
+
+<mat-form-field appearance="fill">
+  <mat-label>Cliente</mat-label>
+  <mat-select (selectionChange)="atualizaCliente($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let cliente of arrayClientes" [value]="cliente">
+      {{ cliente.nome }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Filme</mat-label>
+  <mat-select (selectionChange)="atualizaFilme($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let filme of arrayFilmes" [value]="filme">
+      {{ filme.titulo }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+<br />
 <div id="botaoCadastrar">
-  <button (click)="create()">Cadastrar</button>
+  <button mat-stroked-button color="primary" (click)="create()">
+    Cadastrar
+  </button>
 </div>
+<br />
+<br />

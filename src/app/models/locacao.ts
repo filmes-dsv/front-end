@@ -3,4 +3,6 @@ export interface Locacao {
   usuarioId: number;
   filmeId: number;
   criadoem?: string;
+  filme?: any;
+  usuario?: any;
 }

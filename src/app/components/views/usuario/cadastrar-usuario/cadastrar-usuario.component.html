@@ -1,8 +1,15 @@
+<br />
 <h1>Cadastrar usuário</h1>
-<div id="nome">
-  <label for="nome">Nome:</label>
-  <input type="text" name="nome" [(ngModel)]="nome" />
-</div>
+<mat-form-field>
+  <mat-label>Nome</mat-label>
+  <input type="text" name="nome" [(ngModel)]="nome" matInput />
+</mat-form-field>
+<br />
+<br />
 <div id="botaoCadastrar">
-  <button (click)="create()">Cadastrar</button>
+  <button mat-stroked-button color="primary" (click)="create()">
+    Cadastrar
+  </button>
 </div>
+<br />
+<br />

@@ -1,8 +1,21 @@
-<h1>Deletar locação</h1>
-<div id="id">
-  <label for="id">ID da locação:</label>
-  <input type="text" name="id" [(ngModel)]="id" />
-</div>
-<div id="botaoDeletar">
-  <button (click)="delete()">Deletar</button>
-</div>
+<br />
+<h1>Devolução de locações</h1>
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Locações</mat-label>
+  <mat-select (selectionChange)="atualizar($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let locacao of locacoes" [value]="locacao">
+      Filme: {{ locacao.filme }} | Usuário: {{ locacao.usuario }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+<br />
+
+<button mat-stroked-button color="primary" (click)="deletar()">Devolver</button>
+
+<br />
+<br />

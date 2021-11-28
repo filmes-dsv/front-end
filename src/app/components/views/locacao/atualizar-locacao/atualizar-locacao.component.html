@@ -1,16 +1,45 @@
+<br />
 <h1>Atualizar locação</h1>
-<div>
-  <label for="filmeId">ID do filme:</label>
-  <input type="text" name="filmeId" [(ngModel)]="filmeId" />
-</div>
-<div id="usuarioId">
-  <label for="usuarioId">ID do usuário:</label>
-  <input type="text" name="usuarioId" [(ngModel)]="usuarioId" />
-</div>
-<div id="id">
-  <label for="id">ID da locação:</label>
-  <input type="text" name="id" [(ngModel)]="id" />
-</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Selecione a locação que deseja atualizar</mat-label>
+  <mat-select (selectionChange)="atualizar($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let locacao of locacoes" [value]="locacao">
+      Filme: {{ locacao.filme }} | Usuário: {{ locacao.usuario }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Selecione o cliente atualizado</mat-label>
+  <mat-select (selectionChange)="atualizaCliente($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let cliente of arrayClientes" [value]="cliente">
+      {{ cliente.nome }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br />
+
+<mat-form-field appearance="fill">
+  <mat-label>Selecione o filme atualizado</mat-label>
+  <mat-select (selectionChange)="atualizaFilme($event)" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let filme of arrayFilmes" [value]="filme">
+      {{ filme.titulo }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+<br />
 <div id="botaoAtualizar">
-  <button (click)="update()">Atualizar</button>
+  <button mat-stroked-button color="primary" (click)="update()">
+    Atualizar
+  </button>
 </div>
+<br />
+<br />

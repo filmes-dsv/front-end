@@ -10,11 +10,20 @@ import { FilmeService } from "src/app/services/filme.service";
 })
 export class DeletarFilmeComponent implements OnInit {
   id!: string;
+  arrayFilmes: Filme[] = [];
 
   locacoes: Filme[] = [];
   constructor(private service: FilmeService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.list().subscribe((filmes) => {
+      this.arrayFilmes = filmes;
+    });
+  }
+
+  atualizaFilme(val: any): void {
+    this.id = val.value.id;
+  }
 
   delete(): void {
     this.service.deletarFilme(this.id).subscribe((user) => {

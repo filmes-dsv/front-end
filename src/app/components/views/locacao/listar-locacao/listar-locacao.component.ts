@@ -12,8 +12,14 @@ export class ListarLocacaoComponent implements OnInit {
   constructor(private service: LocacaoService) {}
 
   ngOnInit(): void {
-    this.service.list().subscribe((locacoes) => {
-      this.locacoes = locacoes;
-    }); //subscribe avisa quando tiver resposta
+    this.service.list().subscribe((locs) => {
+      this.locacoes = locs;
+
+      locs.map((loc, index) => (this.locacoes[index].filme = loc.filme.titulo));
+
+      locs.map(
+        (loc, index) => (this.locacoes[index].usuario = loc.usuario.nome)
+      );
+    });
   }
 }

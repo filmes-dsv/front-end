@@ -10,11 +10,19 @@ import { UsuarioService } from "src/app/services/usuario.service";
 })
 export class DeletarUsuarioComponent implements OnInit {
   id!: string;
+  array: Usuario[] = [];
 
-  locacoes: Usuario[] = [];
   constructor(private service: UsuarioService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.list().subscribe((user) => {
+      this.array = user;
+    });
+  }
+
+  atualizar(val: any): void {
+    this.id = val.value.id;
+  }
 
   delete(): void {
     this.service.deletarUsuario(this.id).subscribe((user) => {
